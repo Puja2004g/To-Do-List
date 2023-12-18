@@ -1,0 +1,28 @@
+<%- include("header") -%>
+
+    <!-- everthing that is valid in html valid in ejs -->
+    <div class="box" id="heading">
+        <h1><%= listitle %></h1>
+    </div>
+
+
+    <div class="box">
+        <% for(var i=0; i<newly_added_item.length; i++){ %>
+            <div class="item">
+                <input type="checkbox">
+                <p><%= newly_added_item[i] %> </p>
+            </div>
+        <% } %>
+
+        <form action="/" method="post">
+        <input type="text" name="newitem" autocomplete="off" autocapitalize="on" placeholder="New Item">
+        <button type="submit" name="list" formaction="add" value= <%= listitle %> >+</button>
+    </form>
+
+    <form action="/" method="post">
+        <input type="text" name="remove" autocomplete="off" placeholder="Item to be removed">
+        <button type="submit" name="list" formaction="remove" value= <%= listitle %>>-</button>
+    </form>
+    </div>
+
+<%- include("footer") -%>
